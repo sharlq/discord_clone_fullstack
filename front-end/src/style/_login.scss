@@ -1,0 +1,16 @@
+.login{
+    margin: auto;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+.login-logo{
+    object-fit: contain;
+    height: 150px;
+}
+button{
+    width: 30VH;
+    align-self: center;
+    margin-top: 30vh;
+    height: 50px;
+    background: $discordLogoColor ;
+}}

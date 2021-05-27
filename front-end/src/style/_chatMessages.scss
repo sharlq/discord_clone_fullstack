@@ -1,0 +1,27 @@
+.chatMessages{
+    flex:1;
+    .message{
+        height: fit-content;
+        margin-left:20px;
+        margin-top:40px;
+        display: flex;
+        h4{
+            height: fit-content;
+        }
+        p{
+            height: fit-content;
+        }
+        .info{
+            margin-left: 1vw;
+            height: fit-content;
+        }
+        &-header{
+            display: flex;
+            &_timeStamp{
+                margin-left: 1vw;
+                font-size: 14px;
+                color:$secondary;
+            }
+        }
+    }
+}

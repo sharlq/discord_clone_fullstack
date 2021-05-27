@@ -1,0 +1,10 @@
+@import 'config';
+@import 'sidebar';
+@import 'chat';
+@import 'chatHeader';
+@import 'chatinput';
+@import 'chatMessages';
+@import 'login';
+.App{
+    display: flex;
+}

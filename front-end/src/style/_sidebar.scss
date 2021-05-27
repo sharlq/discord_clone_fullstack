@@ -1,0 +1,142 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    flex: .25;
+    background: $secondaryBack;
+    height: 100%;
+    &-profile{
+        padding: 10px;
+        background: $bannerBack;
+        display: flex;
+        z-index: 1;
+        height: fit-content;
+        margin-top: auto;
+        justify-content: space-between;
+        align-items: center;
+        &_info{
+            display: flex;
+            .user{
+                padding-left:5px;
+            }
+            p{
+                color: $secondary;
+            }
+        }
+        &_icons{
+            display: flex;
+            .red{
+                color: red;
+            }
+            .dontDisplay{
+                display: none;
+            }
+            .icon{
+            color: $secondary;
+            padding: 8px;
+            border-radius: 7px;
+            cursor: pointer;
+            }
+            .icon:hover{
+                background: $primaryBack;
+                }
+        }
+    }
+    .server{
+        background: $secondaryBack ;
+        &-name{
+            display: flex;
+            height: fit-content;
+            padding-left: 1vw;
+            margin-top: 1vh;
+            border-bottom: 3px solid $primaryBack;
+            justify-content:space-between ;
+           
+        }
+        .channelsGroup{
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            margin-top: 1vh;
+            color: $secondary;
+            &-header{
+                display: flex;
+                color: $secondary;  
+                height: fit-content;
+                justify-content: space-between;
+                align-items: center;
+                &_title{
+                    display:flex;
+                }
+            }
+            .expand{
+                font-size: 20px;
+            }
+            .addIcon{
+                cursor: pointer;
+            }
+            .addIcon:hover{
+                color:white;
+            }
+
+        }
+
+    }
+
+    .connection{
+        justify-content:space-between ;
+        padding: 8px;
+        display: flex;
+        height: fit-content;
+        align-items: center;
+        border-bottom: 3px solid $primaryBack;
+        background-color: $bannerBack;
+        &-status{
+            display: flex;
+            color:$success;
+            .signal{
+                font-size: 24px;
+            }
+        }
+        &-info{
+            p{
+                color: $secondary;
+            }
+        }
+        .disconnect{
+            color: $secondary;
+            padding: 10px;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .disconnect:hover{
+                background: $primaryBack;
+        }
+    }
+    
+}
+
+
+
+.sidebarChannel{
+    display: flex;
+    height: fit-content;
+    margin-left: 2vw;
+    margin-right: .5vw;
+    border-radius: 5px;
+
+    align-items:center ;
+    cursor: pointer;
+    h4{
+        display: flex;
+        align-items: center;
+    }
+    &_hash{
+        font-size: 30px;
+        padding: 8px;
+    }
+}
+.sidebarChannel:hover{
+    color: $primary;
+    background: $primaryBack ;
+}
+

@@ -1,0 +1,54 @@
+.chatInput{
+    display: flex;
+    background-color: lighten($color: $primaryBack, $amount: 8);
+    color: $secondary;
+    border-radius: 7px;
+    padding: 10px;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1.5vh;
+    height: fit-content;
+form{
+    display: flex;
+    flex: 1;
+    height: fit-content;
+input{
+    flex: 1;
+    height: fit-content;
+    color: $secondary;
+    height: fit-content;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding-left: 1vw;
+    
+}
+button{
+    width: 0;
+    height: 0;
+    background: none;
+    border: none;
+    color:transparent;
+}
+}
+.MuiSvgIcon-root{
+    cursor: pointer;
+    color:  lighten($color: $secondary , $amount: 25) ;
+    margin-left: .5vw;
+}
+.MuiSvgIcon-root:hover{
+    color: lighten($color: $secondary , $amount: 80);
+}
+.Gif{
+    color: lighten($color: $primaryBack, $amount: 8) ;
+    background:lighten($color: $secondary , $amount: 25);
+    border-radius: 5px;
+}
+.Gif:hover{
+    color: lighten($color: $primaryBack, $amount: 8) ;
+    background:lighten($color: $secondary , $amount: 80) ;
+    
+}
+}
