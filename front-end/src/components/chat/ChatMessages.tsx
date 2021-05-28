@@ -4,20 +4,31 @@ import db from "../../firebase"
 import {useSelector} from "react-redux"
 import {selectChannelId} from "../../features/appSlice"
 import firebase from 'firebase'
-import axios from 'axios'
+import axios from '../../axios'
+import Pusher from 'pusher-js';
 const ChatMessages = () => {
     const [messages,setMessages]=useState<firebase.firestore.DocumentData[]>([])
     const channelId = useSelector(selectChannelId)
     const getConversation = (channelId:string|undefined) =>{
         if(channelId){
-            axios.get(`/get/conversation?id=${channelId}`).then((res)=>{
+            axios.get(`get/conversation?id=${channelId}`).then((res)=>{
                 setMessages(res.data[0].conversation)
+                console.log(res.data)
+            }).catch((err)=>{
+                console.log(err.message)
             })
         }
+
     }
+    const pusher = new Pusher('782d810abf216111bcc4', {
+        cluster: 'ap2'
+      });
     useEffect(()=>{
         getConversation(channelId)
-        console.log(messages)
+        const channel = pusher.subscribe('conversation');
+        channel.bind('newMessage', function() {
+            getConversation(channelId)
+        });
     },[channelId])
     console.log(messages)
     return (
