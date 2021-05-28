@@ -1,9 +1,13 @@
 .chatMessages{
     flex:1;
+    overflow: overlay;
+    
     .message{
+        
         height: fit-content;
         margin-left:20px;
-        margin-top:40px;
+        margin-top:30px;
+        margin-bottom: 20px;
         display: flex;
         h4{
             height: fit-content;

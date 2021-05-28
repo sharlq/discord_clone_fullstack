@@ -13,6 +13,17 @@ $discordLogoColor:#5865f1;
 }
 html{
     height: 100%;
+    ::-webkit-scrollbar {
+        width: 10px;
+      }
+    ::-webkit-scrollbar-track {
+        background: transparent;
+        display: none;
+      }
+    ::-webkit-scrollbar-thumb {
+        background: $secondaryBack;
+      }
+ 
 }
 body{
     height: 100%;
