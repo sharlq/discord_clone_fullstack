@@ -5,12 +5,15 @@ import Channel from './channel';
 import firebase from 'firebase'
 import db from '../../../firebase';
 import axios from '../../../axios';
+import Pusher from 'pusher-js';
 interface Channell  {
     _id: string | null |undefined,
     channelName: string |null | undefined
 }
 const ChannelsGroup:React.FC = () => {
-
+    const pusher = new Pusher('782d810abf216111bcc4', {
+        cluster: 'ap2'
+      });
  const [channels,setChannels] = useState<Channell[]|null|undefined>(null)
  const getchannels = () =>{
      axios.get('/get/channelList')
@@ -20,19 +23,21 @@ const ChannelsGroup:React.FC = () => {
      })
  }
  useEffect(()=>{
-      
     getchannels()
+    const channel = pusher.subscribe('channels');
+    channel.bind('newChannel', function() {
+        getchannels()
+    });
  },[])
 
 const handleAddChannel =(e:MouseEvent<SVGSVGElement>) =>{
     e.preventDefault();
     const channelName = prompt("Enter a new channel name")
     if(channelName){
-        db.collection("channels").add({
-            channelName:channelName,
+        axios.post('new/channel',{
+            channelName:channelName
         })
     }
-    console.log("srsly",channels)
 }
     return (
         <div className="channelsGroup">
