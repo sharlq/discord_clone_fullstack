@@ -6,7 +6,9 @@ import {selectChannelId} from "../../features/appSlice"
 import firebase from 'firebase'
 import axios from '../../axios'
 import Pusher from 'pusher-js';
+
 const ChatMessages = () => {
+    const PUSHER_KEY =process.env.REACT_APP_PUSHER_KEY;
     const [messages,setMessages]=useState<firebase.firestore.DocumentData[]>([])
     const channelId = useSelector(selectChannelId)
     const getConversation = (channelId:string|undefined) =>{
@@ -20,17 +22,19 @@ const ChatMessages = () => {
         }
 
     }
-    const pusher = new Pusher('782d810abf216111bcc4', {
+    
+    const pusher = new Pusher(PUSHER_KEY!, {
         cluster: 'ap2'
       });
     useEffect(()=>{
+        console.log(process.env.REACT_APP_PUSHER_KEY)
         getConversation(channelId)
-        const channel = pusher.subscribe('conversation');
+        const channel = pusher.subscribe('conversaton');
         channel.bind('newMessage', function() {
             getConversation(channelId)
         });
     },[channelId])
-    console.log(messages)
+    
     return (
         <div className="chatMessages">
             {

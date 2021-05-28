@@ -6,21 +6,21 @@ import EmojiEmotionsIcon from '@material-ui/icons/EmojiEmotions';
 import {useSelector} from "react-redux"
 import {selectChannelId} from "../../features/appSlice"
 import {selectUser} from "../../features/userSlice"
-import firebase from 'firebase'
-import db from "../../firebase"
 import axios from '../../axios'
+import moment from 'moment'
 const ChatInput = () => {
     const user = useSelector(selectUser)
     const [input,setInput] = useState("")
     const channelId = useSelector(selectChannelId)
+
+
     const sendMessage = (e:React.MouseEvent<HTMLButtonElement>) =>{
             e.preventDefault();
            axios.post(`new/message?id=${channelId}`,{
                message:input,
-               timestamp: Date.now(),
+               timestamp: moment().format('MMMM Do YYYY, h:mm:ss a'),
                user:user
            })
-             console.log(channelId)
         
     }
     return (

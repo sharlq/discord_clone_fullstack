@@ -11,7 +11,8 @@ interface Channell  {
     channelName: string |null | undefined
 }
 const ChannelsGroup:React.FC = () => {
-    const pusher = new Pusher('782d810abf216111bcc4', {
+    const PUSHER_KEY =process.env.REACT_APP_PUSHER_KEY;
+    const pusher = new Pusher(PUSHER_KEY!, {
         cluster: 'ap2'
       });
  const [channels,setChannels] = useState<Channell[]|null|undefined>(null)
