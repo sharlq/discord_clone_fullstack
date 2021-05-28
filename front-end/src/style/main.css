@@ -8,6 +8,19 @@ html {
   height: 100%;
 }
 
+html ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html ::-webkit-scrollbar-track {
+  background: transparent;
+  display: none;
+}
+
+html ::-webkit-scrollbar-thumb {
+  background: #2f3136;
+}
+
 body {
   height: 100%;
   color: white;
@@ -399,6 +412,7 @@ body {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  overflow: overlay;
 }
 
 .chatMessages .message {
@@ -406,7 +420,8 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   margin-left: 20px;
-  margin-top: 40px;
+  margin-top: 30px;
+  margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
