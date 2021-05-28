@@ -10,8 +10,10 @@ mongoose.connect(mongoURI,{
 
 mongoose.connection.once('open',()=>{
     console.log("DB conected")
-    const changeStream = mongoose.connection.collection('conversation').watch();
+    const changeStream = mongoose.connection.collection('conversations').watch();
+    console.log(changeStream)
     changeStream.on('change',(change)=>{
+        console.log(change.operationType)
         if(change.operationType === 'insert'){
             pusher.trigger('channels','newChannel',{
                 'change':change
